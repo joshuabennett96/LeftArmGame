@@ -13,6 +13,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        rb.velocity = new Vector2(3, rb.velocity.y);
+        rb.velocity = new Vector2(8, rb.velocity.y);
     }
 }
