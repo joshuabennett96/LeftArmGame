@@ -54,9 +54,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CharacterController2D.cs" />
+     <Compile Include="Assets\Scripts\Collision.cs" />
+     <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\Platform.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\respawn.cs" />
      <Compile Include="Assets\VerticalMovement.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Josh/Documents/LeftArmGame/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

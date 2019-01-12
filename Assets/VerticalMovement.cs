@@ -6,7 +6,7 @@ public class VerticalMovement : MonoBehaviour {
 
 	float VerticalMove = 0f;
 	private float yPosition;
-	float moveSpeed = 40f;
+	public float moveSpeed = 40f;
 	
 	// Use this for initialization
 	void Start () {
