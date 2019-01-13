@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\Platform.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\respawn.cs" />
+     <Compile Include="Assets\Scripts\SpikeMovement.cs" />
      <Compile Include="Assets\VerticalMovement.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Josh/Documents/LeftArmGame/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

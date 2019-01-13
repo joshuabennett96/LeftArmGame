@@ -8,6 +8,9 @@ public class respawn : MonoBehaviour {
 	[SerializeField] private Transform respawnPoint;
 	
 	void OnCollisionEnter2D (Collision2D col){
-		player.transform.position = respawnPoint.transform.position;
+		if(col.transform.name == "Player")
+		{
+			player.transform.position = respawnPoint.transform.position;
+		}
 	}
 }
