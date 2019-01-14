@@ -252,14 +252,35 @@ GameObject:
   - component: {fileID: 482317439}
   - component: {fileID: 482317442}
   - component: {fileID: 482317443}
+  - component: {fileID: 482317438}
   - component: {fileID: 482317444}
   m_Layer: 8
-  m_Name: Destroyable Object
+  m_Name: Lava
   m_TagString: Destroyable Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &482317438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 482317437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5d9816973dd9247938af35cbe4e469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 482317443}
+  playerVelocity: 10
+  currentX: 0
+  flagLeft: 0
+  player: {fileID: 1850688105}
+  updated: 0
+  notUsing: {x: -206, y: 39}
+  level6spawn: {x: -80, y: 73}
+  movement: 0
 --- !u!23 &482317439
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -309,7 +330,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 482317437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -77.8, y: 85.4, z: -4.9598193}
+  m_LocalPosition: {x: -72.6, y: 84.4, z: -4.9598193}
   m_LocalScale: {x: 28.945591, y: 9.564941, z: 2.8659}
   m_Children:
   - {fileID: 1396244191}
@@ -348,7 +369,7 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 482317437}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -360,7 +381,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &482317444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +633,12 @@ MonoBehaviour:
   playerVelocity: 10
   currentY: 0
   flagUp: 0
+  player: {fileID: 1850688105}
+  updated: 0
+  notUsing: {x: 0, y: 0}
+  level4spawn: {x: -80, y: 73}
+  level5spawn: {x: -65, y: 55}
+  movement: 0
 --- !u!114 &836534720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,6 +789,31 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 114566374641172418, guid: 832ce9e120a5aae4db0c641f14bbff71,
+        type: 2}
+      propertyPath: spike
+      value: 
+      objectReference: {fileID: 836534719}
+    - target: {fileID: 114566374641172418, guid: 832ce9e120a5aae4db0c641f14bbff71,
+        type: 2}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114566374641172418, guid: 832ce9e120a5aae4db0c641f14bbff71,
+        type: 2}
+      propertyPath: changeLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114566374641172418, guid: 832ce9e120a5aae4db0c641f14bbff71,
+        type: 2}
+      propertyPath: spike1
+      value: 
+      objectReference: {fileID: 836534719}
+    - target: {fileID: 114566374641172418, guid: 832ce9e120a5aae4db0c641f14bbff71,
+        type: 2}
+      propertyPath: lava1
+      value: 
+      objectReference: {fileID: 482317438}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 832ce9e120a5aae4db0c641f14bbff71, type: 2}
   m_IsPrefabAsset: 0
@@ -906,11 +958,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4611831556886748, guid: 99dfb7e9930537e4b9243b2ce843aae8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -104.1
+      value: -206.3
       objectReference: {fileID: 0}
     - target: {fileID: 4611831556886748, guid: 99dfb7e9930537e4b9243b2ce843aae8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 72.7
+      value: 39.3
       objectReference: {fileID: 0}
     - target: {fileID: 4611831556886748, guid: 99dfb7e9930537e4b9243b2ce843aae8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1237,6 +1289,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1730463961441628, guid: 832ce9e120a5aae4db0c641f14bbff71,
     type: 2}
   m_PrefabInternal: {fileID: 990284164}
+--- !u!114 &1850688105 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114566374641172418, guid: 832ce9e120a5aae4db0c641f14bbff71,
+    type: 2}
+  m_PrefabInternal: {fileID: 990284164}
+  m_Script: {fileID: 11500000, guid: 44cf42f494ff4e54289332d7fbe94e3d, type: 3}
 --- !u!4 &1850688110 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4739763339063256, guid: 832ce9e120a5aae4db0c641f14bbff71,

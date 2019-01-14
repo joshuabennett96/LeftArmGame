@@ -8,6 +8,13 @@ public class SpikeMovement : MonoBehaviour {
 	public int playerVelocity = 10;
 	public float currentY = 0f;
 	public bool flagUp = false;
+	public Player player;
+	public bool updated = false;
+	public Vector2 notUsing = new Vector2(-206,39);
+	public Vector2 level4spawn = new Vector2(-80,73);
+	public Vector2 level5spawn = new Vector2(-60,55);
+	public bool movement = false;
+	private Vector2 stationary = new Vector2 (0,0);
 	
 	// Use this for initialization
 	void Start () {
@@ -15,7 +22,26 @@ public class SpikeMovement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	
+	
+	void changeLevel(){
+		if(player.level == 4){
+				rb.position = level4spawn;
+				movement = true;
+				updated = true;
+		}else if(player.level == 5){
+				rb.position = level5spawn;
+				updated = true;
+				movement = true;
+		}else{
+			rb.position = notUsing;
+			updated = true;
+			movement = false;
+		}
+	}
+	
+	void move() {
+		
 		currentY = rb.position.y;
 		Debug.Log(currentY);
 		if (flagUp == false){
@@ -28,6 +54,19 @@ public class SpikeMovement : MonoBehaviour {
 			if(currentY <=60){
 				flagUp = false;
 			}
+		}
+	}
+	
+	void Update () {
+		
+		if (player.changeLevel == true){
+			changeLevel();
+		}
+		
+		if(movement == true){
+			move();
+		}else{
+			rb.velocity = stationary;
 		}
 	}
 }

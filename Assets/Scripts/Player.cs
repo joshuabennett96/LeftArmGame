@@ -13,6 +13,10 @@ public class Player : MonoBehaviour
 	public int score;
 	public int playerVelocity;
 	public Transform destination;
+	public int level = 1;
+	public bool changeLevel = false;
+	public SpikeMovement spike1;
+	public LavaMovement lava1;
 	
 	//public Text countText;
 
@@ -28,12 +32,23 @@ public class Player : MonoBehaviour
 		//Debug.Log(rb.position.y);
 		currentX = rb.position.x;
         rb.velocity = new Vector2(playerVelocity, rb.velocity.y);
-		if (currentX >= -52){
-			rb.position = spawnPoint;
+		if (currentX >= -52 && changeLevel == false){
+			level = level + 1;
+			changeLevel = true;
+		}else if (currentX >= -52 && changeLevel == true){
+			if(spike1.updated == true && lava1.updated == true){
+				rb.position = spawnPoint;
+				changeLevel = false;
+				spike1.updated = false;
+				lava1.updated = false;
+			}
+		}
+			
+			
 		//	FindObjectOfType<Score>
 			//score = score + 1;
 			//countText.Text = "Score: " + score;
-		}
+		
     }
 	
 	void OnCollisionEnter(Collision col)
