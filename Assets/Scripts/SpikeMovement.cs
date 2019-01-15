@@ -15,10 +15,17 @@ public class SpikeMovement : MonoBehaviour {
 	public Vector2 level5spawn = new Vector2(-60,55);
 	public bool movement = false;
 	private Vector2 stationary = new Vector2 (0,0);
+	public bool top = true;
+	private int topBorder = 90;
+	private int bottomBorder = 60;
 	
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
+		if(top == false){
+			topBorder = 63;
+			bottomBorder = 47;
+		}
 	}
 	
 	// Update is called once per frame
@@ -46,12 +53,12 @@ public class SpikeMovement : MonoBehaviour {
 		Debug.Log(currentY);
 		if (flagUp == false){
 			rb.velocity = new Vector2(rb.velocity.x, playerVelocity);
-			if (currentY >=90){
+			if (currentY >=topBorder){
 				flagUp = true;
 			}
 		}else{
 			rb.velocity = new Vector2(rb.velocity.x, 0-playerVelocity);
-			if(currentY <=60){
+			if(currentY <=bottomBorder){
 				flagUp = false;
 			}
 		}
